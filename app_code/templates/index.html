@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fonteyn Vacation Park</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+    function passvalues()
+    {
+      var arrivaldate = document.getElementById ("arr_date").value;
+      localStorage.setItem("arrivalvalue", arrivaldate) ;
+      var departuredate = document.getElementById ("dep_date").value;
+      localStorage.setItem("departurevalue", departuredate) ;
+      var people = document.getElementById ("people").value;
+      localStorage.setItem("peoplevalue", people) ;
+      var room1 = document.getElementById ("room1").value;
+      localStorage.setItem("room1value", room1) ;
+      var room2 = document.getElementById ("room2").value;
+      localStorage.setItem("room2value", room2) ;
+      return false;
+    }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="content flex_space">
+        <div class="logo">
+          <a href="/">
+            <img src="../static/images/Logo.png" alt="" />
+          </a>
+        </div>
+        <div class="navlinks">
+          <ul id="menulist">
+            <li><a href="/">home</a></li>
+            <li><a href="#rooms" id="scrollButton">rooms</a></li>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                  var scrollButton = document.getElementById("scrollButton");
+                 
+                  scrollButton.addEventListener("click", function() {
+                      
+                    var distanceToScroll = 1080;
+
+                      window.scrollBy({
+                          top: distanceToScroll,
+                          behavior: "smooth"
+                      });
+                  });
+              });
+          </script>
+            <li><a href="#about" id="scrollButton_about">about</a></li>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                  var scrollButton = document.getElementById("scrollButton_about");
+                 
+                  scrollButton.addEventListener("click", function() {
+                      
+                    var distanceToScroll = 1750;
+
+                      window.scrollBy({
+                          top: distanceToScroll,
+                          behavior: "smooth"
+                      });
+                  });
+              });
+          </script>
+            <li>
+              <a href="#contact" id="scrollButton_contact">contact</a>
+            </li>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                  var scrollButton = document.getElementById("scrollButton_contact");
+                 
+                  scrollButton.addEventListener("click", function() {
+                      
+                    var distanceToScroll = 2275;
+
+                      window.scrollBy({
+                          top: distanceToScroll,
+                          behavior: "smooth"
+                      });
+                  });
+              });
+          </script>
+            <li><i class="fa fa-search"></i></li>
+            <li>
+              <a href="{{ url_for('reservation')}}">
+                <button class="primary-btn">BOOK NOW</button>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('login')}}">
+              <button class="primary-btn"><i class="fa-regular fa-user">Log in</i></button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+
+    <section class="home">
+      <div class="content">
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <img src="../static/images/banner.jpg" alt="" />
+            <div class="text">
+              <h1>Spend Your Holiday</h1>
+              <p>
+                Experience the art of vacationing with us. Our holiday park is designed to be your haven of comfort and joy. 
+                Let every moment be filled with the magic of creating cherished memories.
+              </p>
+              <div class="flex">
+                <button class="primary-btn" id="scrollButton_about1">ABOUT US</button>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                      var scrollButton = document.getElementById("scrollButton_about1");
+                     
+                      scrollButton.addEventListener("click", function() {
+                          
+                        var distanceToScroll = 1750;
+    
+                          window.scrollBy({
+                              top: distanceToScroll,
+                              behavior: "smooth"
+                          });
+                      });
+                  });
+                </script>
+                <button class="secondary-btn" id="scrollButton_contact1">CONTACT US</button>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+                      var scrollButton = document.getElementById("scrollButton_contact1");
+                     
+                      scrollButton.addEventListener("click", function() {
+                          
+                        var distanceToScroll = 2275;
+    
+                          window.scrollBy({
+                              top: distanceToScroll,
+                              behavior: "smooth"
+                          });
+                      });
+                  });
+              </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
+    <script>
+      $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+          items: 1, // Display only one item
+        });
+      });
+    </script>
+
+    <section class="book">
+      <div class="container flex_space">
+        <div class="text">
+          <h1><span>Book </span> Your Rooms</h1>
+        </div>
+        <div class="form">
+          <form action = "reservation" class="grid">
+            <input type="date" id = "arr_date" placeholder="Arrival Date" />
+            <input type="date" id = "dep_date" placeholder="Departure Date" />
+            <input type="number" id = "people" pattern="[0-9]*" placeholder="People" />
+            <input type="number" id = "room1" pattern="[0-9]*"placeholder="Room 1" />
+            <input type="number" id = "room2" pattern="[0-9]*" placeholder="Room 2" />
+            <a href="{{ url_for('reservation')}}">
+              <input type="submit" value="BOOK NOW" onclick="passvalues();"/>
+              <!--  -->
+            </a>
+          </form>
+          <script>
+            document.getElementById("people").addEventListener("input", function() {
+            this.value = this.value.replace(/[eE+-]/g, ""); // Remove 'e', 'E', '+' and '-'
+            });
+            document.getElementById("room1").addEventListener("input", function() {
+                this.value = this.value.replace(/[eE+-]/g, ""); // Remove 'e', 'E', '+' and '-'
+            });
+            document.getElementById("room2").addEventListener("input", function() {
+                this.value = this.value.replace(/[eE+-]/g, ""); // Remove 'e', 'E', '+' and '-'
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <section class="rooms">
+      <div class="container top">
+        <div class="heading">
+          <h2>Our Rooms</h2>
+          <p>
+            Experience the art of vacationing with us. Our holiday park is designed to be your haven of comfort and joy.
+            Let every moment be filled with the magic of creating cherished memories.
+          </p>
+        </div>
+    
+        <div class="content mtop">
+          <div class="owl-carousel owl-carousel1 owl-theme">
+            <div class="items">
+              <div class="image">
+                <img src="../static/images/room-1.png" alt="" />
+              </div>
+              <div class="text">
+                <h2>Room 1</h2>
+                <p>
+                  Stay a night in our beautiful room that can comfortably fit 2 person at Fonteyn
+                </p>
+                <h3>
+                  €215
+                  <span>
+                    <br />
+                    Per Night
+                  </span>
+                </h3>
+              </div>
+            </div>
+            <div class="items">
+              <div class="image">
+                <img src="../static/images/room-2.png" alt="" />
+              </div>
+              <div class="text">
+                <h2>Room 2</h2>
+                <p>
+                  Stay a night in our beautiful room that can comfortably fit 4 person at Fonteyn
+                </p>
+                <h3>
+                  €430
+                  <span>
+                    <br />
+                    Per Night
+                  </span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <script>
+      $(".owl-carousel1").owlCarousel({
+        loop: true,
+        margin: 40,
+        nav: true,
+        dots: false,
+        navText: [
+          "<i class='fa fa-chevron-left'></i>",
+          "<i class='fa fa-chevron-right'></i>",
+        ],
+        responsive: {
+          0: {
+            items: 1,
+          },
+          768: {
+            items: 1, // Display one item on smaller screens
+            margin: 10, // Adjust margin for smaller screens
+          },
+          1000: {
+            items: 2,
+          },
+        },
+      });
+    </script>
+     
+     <section class="about top">
+      <div class="container flex">
+        <div class="left">
+          <div class="heading">
+            <h1>WELCOME</h1>
+            <h2>Fonteyn Vacation Park</h2>
+          </div>
+          <p>At Fonteyn Holiday Parks, our journey began over five decades ago as a small campsite in the serene landscapes of southern Netherlands. Founded by Frits Fonteyn, our humble beginnings have blossomed into a thriving family business that now extends its warmth and hospitality to holidaymakers across Europe.</p>
+        </div>
+        <div class="right">
+          <img src="../static/images/about.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container grid">
+        <div class="box">
+          <img src="../static/images/Logo.png" alt="">
+          <p>At Fonteyn Holiday Parks, our journey began over five decades ago as a small campsite in the serene landscapes of southern Netherlands.
+             Founded by Frits Fonteyn, our humble beginnings have blossomed into a thriving family business that now extends its warmth and hospitality to holidaymakers across Europe.</p>
+  
+          <div class="icon">
+            <i class="fa fa-facebook-f"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-youtube"></i>
+          </div>
+        </div>
+  
+        <div class="box">
+          <h2>Links</h2>
+          <ul>
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Services</li>
+            <li>Privacy Policy</li>
+          </ul>
+        </div>
+  
+        <div class="box">
+          <h2>Contact Us</h2>
+          <p>For any inquiries or assistance, feel free to reach out to us. Our dedicated team is here to help you with any questions you may have. You can contact us via email, phone, or by filling out the contact form below. 
+            We look forward to hearing from you and providing the best service possible.
+          </p>
+          <i class="fa fa-location-dot"></i>
+          <label>Rachelsmolen 1, 5612 MA Eindhoven </label> <br>
+          <i class="fa fa-phone"></i>
+          <label>[+31] 0885080000</label> <br>
+          <i class="fa fa-envelope"></i>
+          <label>info@fontys.nl</label> <br>
+        </div>
+      </div>
+    </footer>
+  
+    <div class="legal">
+      <p class="container">Copyright (c) 2023 Copyright Holder All Rights Reserved.</p>
+    </div>
+    
+
+    
+
+    <script
+      src="https://kit.fontawesome.com/032d11eac3.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

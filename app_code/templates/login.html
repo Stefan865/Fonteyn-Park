@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <title>Log in page</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <header>
+    <div class="content flex_space">
+      <div class="logo">
+        <a href="/">
+          <img src="../static/images/Logo.png" alt="" />
+        </a>
+      </div>
+      <div class="navlinks">
+        <ul id="menulist">
+          <li><a href="/">go back</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <div class="form-box login">
+      <span class="icon-close"><i class="fas fa-times"></i></span> <!-- Updated close icon class -->
+      <form method="POST" action="/login">
+        <h2>Login</h2>
+        {{ form.hidden_tag() }}
+        <div class="input-box">
+          <span class="icon"><i class="fas fa-envelope"></i></span> <!-- Updated envelope icon class -->
+          {{ form.email_address.label }}<br>
+          {{ form.email_address(size=20) }}<br>
+        </div>
+        <div class="input-box">
+          <span class="icon"><i class="fas fa-lock"></i></span> <!-- Updated lock icon class -->
+          {{ form.password.label }}<br>
+          {{ form.password(size=20) }}<br>
+        </div>
+        {{ form.submit(class="btn") }}
+      </form>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/032d11eac3.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>

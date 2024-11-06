@@ -1,0 +1,181 @@
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+ * {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+ }
+ 
+ body {
+   font-family: 'Poppins', sans-serif;
+ }
+ 
+ h1, h2 {
+   font-family: sans-serif;
+   font-weight: 400;
+   text-align: center;
+ }
+ 
+ a {
+   text-decoration: none;
+ }
+ 
+ li {
+   list-style: none;
+ }
+ 
+ .flex {
+   display: flex;
+ }
+ 
+ .flex_space {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ header {
+    width: 100%;
+    position: absolute;
+    top: 28px;
+    right: 0px;
+    left: 0px;
+    z-index: 1000;
+    padding: 0 65px;
+    line-height: 2vh;
+  }
+  .logo {
+    margin-left: -20px;
+  }
+  
+  .logo img {
+    width: 145px; /* Set the desired width */
+    height: 100px; /* Set the desired height */
+  }
+  
+  .logo img:hover {
+    cursor: pointer;
+  }
+  
+  header ul {
+    display: inline-block;
+  }
+  
+  header ul li {
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  
+  header ul li a {
+    color: #000;
+    margin: 0 10px;
+    transition: 0.5s;
+  }
+  
+  header ul li a:hover {
+    color: #7fc142;
+  }
+  
+  header i {
+    margin: 0 20px;
+  }
+  
+  header button {
+    padding: 13px 40px;
+  }
+  
+  header .navlinks span {
+    display: none;
+  }
+  
+  
+  .fa.fa-search {
+    color: #FFF;
+  }
+  
+  @media only screen and (max-width:768px) {
+    header ul {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #009f7f;
+      overflow: hidden;
+      transition: max-height 0.5s;
+      text-align: center;
+      z-index: 9;
+    }
+  
+    header ul li {
+      display: block;
+    }
+  
+    header ul li a {
+      color: black;
+    }
+  
+    header i {
+      color: black;
+    }
+  
+    header .navlinks span {
+      color: black;
+      display: block;
+      cursor: pointer;
+      line-height: 10vh;
+      font-size: 25px;
+    }
+  }
+
+
+  /*Booking field*/
+
+  .booking_field{
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    left: 0px;
+    z-index: 1000;
+    padding: 0 65px;
+    line-height: 5vh;
+    text-align: center;
+  }
+
+  .name_field{
+    line-height: 4vh;
+    text-align: center;
+    display: inline-grid;
+  }
+
+  button {
+    border: none;
+    background: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .primary-btn {
+    padding: 15px 40px;
+    background: #7fc142;
+    font-weight: bold;
+    color: white;
+    box-shadow: 2px 2px 2px #000;
+    margin-top: 25px;
+  }
+
+  .checkout_field{
+    width: 100%;
+    position: absolute;
+    top: 400px;
+    right: 0px;
+    left: 0px;
+    z-index: 1000;
+    line-height: 5vh;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+
+

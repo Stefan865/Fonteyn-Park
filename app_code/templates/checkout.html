@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/checkout.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Checkout</title>
+</head>
+<body>
+    <header>
+        <!-- Your header content -->
+    </header>
+    <div class="wrapper">
+        <div class="form-box login">
+            <form action="#">
+                <h2>Your Reservation Details</h2>
+                <div class="input-box">
+                    <p><strong>First Name:</strong> {{ values.first_name }}</p>
+                    <p><strong>Last Name:</strong> {{ values.last_name }}</p>
+                    <p><strong>Email Address:</strong> {{ values.email }}</p>
+                    <p><strong>Arrival Date:</strong> {{ values.arrival_date }}</p>
+                    <p><strong>Departure Date:</strong> {{ values.departure_date }}</p>
+                    <p><strong>Number of People:</strong> {{ values.num_of_people }}</p>
+                    <p><strong>Room 1:</strong> {{ values.room_1 }}</p>
+                    <p><strong>Room 2:</strong> {{ values.room_2 }}</p>
+                </div>
+                <div class="login-register">
+                    <form id="checkout-form" method="POST">
+                        <!-- Your form fields go here -->
+                        <button type="button" class="btn" id="myButton">Finalize</button>
+                    </form>
+                </div>
+            </form>
+        </div>
+      </div>
+
+    <script>
+        function handleClick() {
+            alert("Order finalized!");
+            localStorage.clear();
+
+            // Send a POST request to the server when the button is clicked
+            fetch('/checkout', {
+                method: 'POST',
+                body: new FormData(document.getElementById('checkout-form')),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response if needed
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        
+        document.getElementById("myButton").addEventListener("click", handleClick);
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/reservation.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Reservation</title>
+</head>
+<body>
+    <header>
+        <div class="content flex_space">
+          <div class="logo">
+            <a href="/">
+              <img src="../static/images/Logo.png" alt="" />
+            </a>
+          </div>
+          <div class="navlinks">
+            <ul id="menulist">
+              <li><a href="/">go back</a></li>
+            </ul>
+          </div>
+      </header>
+    <div class="booking_field">
+        <h1>Let's finish your booking!</h1>
+        <br>
+        <form method="POST" action="{{ url_for('checkout') }}" class="name_field">
+            {{ form.hidden_tag() }}
+            {{ form.first_name.label }}
+            {{ form.first_name }}
+            {{ form.last_name.label }}
+            {{ form.last_name }}
+            {{ form.email_address.label }}
+            {{ form.email_address }}
+            </br>
+            <label for="arr_date">Arrival Date: </label>
+            <input type="date" id="arr_date" name="arrivalvalue">
+            <br>
+            <label for="dep_date">Departure Date: </label>
+            <input type="date" id="dep_date" name="departurevalue">
+            <br>
+            <label for="people">Number of People: </label>
+            <input type="number" pattern="[0-9]*" id="people" name="peoplevalue">
+            <br>
+            <label for="room1">Room 1: </label>
+            <input type="number" pattern="[0-9]*" id="room1" name="room1value">
+            <br>
+            <label for="room2">Room 2: </label>
+            <input type="number" pattern="[0-9]*" id="room2" name="room2value">
+            <br>
+            <button class="primary-btn">Make checkout
+                <a href="{{ url_for('checkout')}}"></a>
+            </button>
+        </form> 
+
+    </div>        
+
+
+    <script>
+        window.onload = function()
+        {
+            document.getElementById("arr_date").value = localStorage.getItem("arrivalvalue")
+            document.getElementById("dep_date").value = localStorage.getItem("departurevalue")
+            document.getElementById("people").value = localStorage.getItem("peoplevalue")
+            document.getElementById("room1").value = localStorage.getItem("room1value")
+            document.getElementById("room2").value = localStorage.getItem("room2value")
+        }
+        document.getElementById("arr_date").addEventListener("input", function() {
+        localStorage.setItem("arrivalvalue", this.value);
+    });
+    document.getElementById("dep_date").addEventListener("input", function() {
+        localStorage.setItem("departurevalue", this.value);
+    });
+    document.getElementById("people").addEventListener("input", function() {
+        localStorage.setItem("peoplevalue", this.value);
+    });
+    document.getElementById("room1").addEventListener("input", function() {
+        localStorage.setItem("room1value", this.value);
+    });
+    document.getElementById("room2").addEventListener("input", function() {
+        localStorage.setItem("room2value", this.value);
+    });
+    document.getElementById("people").addEventListener("input", function() {
+    this.value = this.value.replace(/[eE+-]/g, ""); // Remove 'e', 'E', '+' and '-'
+    });
+    document.getElementById("room1").addEventListener("input", function() {
+        this.value = this.value.replace(/[eE+-]/g, ""); // Remove 'e', 'E', '+' and '-'
+    });
+    document.getElementById("room2").addEventListener("input", function() {
+        this.value = this.value.replace(/[eE+-]/g, ""); // Remove 'e', 'E', '+' and '-'
+    });
+    </script>
+    
+</body>
+</html> 
+
